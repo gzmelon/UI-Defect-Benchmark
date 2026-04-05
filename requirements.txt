@@ -1,0 +1,24 @@
+# Deep Learning & Neural Networks
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Graph Neural Networks (For CM-GAT)
+torch_geometric>=2.3.0
+
+# Multimodal Large Language Models (For ViT & MLLM)
+transformers>=4.30.0
+accelerate>=0.20.0
+
+# Image Processing (Pixels)
+Pillow>=9.0.0
+opencv-python>=4.7.0
+
+# Data Processing & Evaluation Metrics
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+scipy>=1.10.0  # For Pearson correlation calculation
+
+# Utility
+tqdm>=4.65.0

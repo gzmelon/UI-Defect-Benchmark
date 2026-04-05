@@ -1,0 +1,62 @@
+{
+  "page_id": "UI_00142",
+  "resolution": {"width": 1920, "height": 1080},
+  "root": {
+    "node_id": "root-0",
+    "tag_name": "body",
+    "bounding_box": [0, 0, 1920, 1080],
+    "css_properties": {
+      "display": "block",
+      "background-color": "#ffffff"
+    },
+    "children": [
+      {
+        "node_id": "div-main-content",
+        "tag_name": "div",
+        "class_name": "container",
+        "bounding_box": [200, 100, 1520, 900],
+        "css_properties": {
+          "display": "flex",
+          "flex-direction": "column"
+        },
+        "children": [
+          {
+            "node_id": "btn-submit-01",
+            "tag_name": "button",
+            "text_content": "Submit Order",
+            "bounding_box": [450, 820, 550, 880],
+            "css_properties": {
+              "position": "relative",
+              "z-index": "1",
+              "background-color": "#007bff",
+              "color": "#ffffff"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "node_id": "div-chat-widget",
+        "tag_name": "div",
+        "class_name": "floating-chat",
+        "bounding_box": [500, 800, 600, 900],
+        "css_properties": {
+          "position": "absolute",
+          "z-index": "9999",
+          "background-color": "#ffffff",
+          "box-shadow": "0px 4px 10px rgba(0,0,0,0.1)"
+        },
+        "children": [
+          {
+            "node_id": "icon-chat-01",
+            "tag_name": "img",
+            "src": "assets/chat_icon.png",
+            "bounding_box": [520, 820, 580, 880],
+            "css_properties": {},
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

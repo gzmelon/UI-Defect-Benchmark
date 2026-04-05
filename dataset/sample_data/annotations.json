@@ -1,0 +1,27 @@
+{
+  "dataset_name": "Figma-Defect-3.5K-Sample",
+  "version": "1.0",
+  "samples": [
+    {
+      "sample_id": "UI_00142",
+      "image_path": "images/UI_00142.png",
+      "dom_path": "dom_trees/UI_00142.json",
+      "defect_label": 1,
+      "defect_type": "CSS_Occlusion",
+      "description": "The 'Submit' button text is occluded by the floating chat widget.",
+      "visual_features": {
+        "bounding_box": [450, 820, 550, 880],
+        "pixel_overlap_ratio": 0.35
+      },
+      "symbolic_nodes": {
+        "node_id": "btn-submit-01",
+        "xpath": "/html/body/div[2]/button",
+        "css_properties": {"z-index": "1", "position": "absolute"}
+      },
+      "human_validation": {
+        "ux_expert_score": 4.8,
+        "agreement_level": "High"
+      }
+    }
+  ]
+}
