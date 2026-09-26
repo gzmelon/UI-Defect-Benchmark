@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Figma-Defect-3.5K Annotation Platform</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    h1 { color: #2c5f8a; }
+    .component { border: 1px solid #ccc; padding: 20px; margin: 20px 0; }
+    .screenshot { max-width: 400px; border: 1px solid #999; }
+    .dom-snippet { background: #f4f4f4; padding: 10px; font-family: monospace; font-size: 12px; }
+    .score-slider { width: 300px; }
+    button { background: #2c5f8a; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Figma-Defect-3.5K Annotation Platform</h1>
+  <p>Please review each UI component and score its overall quality on a 1-100 scale.</p>
+
+  <div id="components">
+    {% for ann in annotations[:10] %}
+    <div class="component" data-id="{{ ann.image_id }}">
+      <h3>Component: {{ ann.image_id }}</h3>
+      <img class="screenshot" src="/static/images/{{ ann.image_id }}.png" alt="{{ ann.image_id }}">
+      <details>
+        <summary>DOM snippet</summary>
+        <div class="dom-snippet">{{ ann.dom_xpath }}</div>
+      </details>
+      <p><strong>Detected defect:</strong> {{ ann.defect_type }} ({{ ann.severity }})</p>
+      <p><strong>Suggested fix:</strong> {{ ann.repair_suggestion }}</p>
+      <label>MOS Score (1-100):
+        <input type="range" class="score-slider" min="1" max="100" value="50"
+               oninput="this.nextElementSibling.value = this.value">
+        <output>50</output>
+      </label>
+      <br><br>
+      <button onclick="submitScore('{{ ann.image_id }}', this)">Submit</button>
+    </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    function submitScore(imageId, btn) {
+      const container = btn.closest('.component');
+      const score = container.querySelector('.score-slider').value;
+      const expertId = prompt("Enter your expert ID (e.g., E01):") || "anonymous";
+      fetch('/api/score', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({image_id: imageId, expert_id: expertId, mos_score: parseInt(score)})
+      }).then(r => r.json()).then(d => {
+        alert('Score submitted: ' + JSON.stringify(d));
+      });
+    }
+  </script>
+</body>
+</html>
