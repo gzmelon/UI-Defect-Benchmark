@@ -1,0 +1,51 @@
+# Complete training configuration for NS-CQA (Table 2 of paper)
+
+symbolic_encoder:
+  model: "roberta-base"
+  frozen: false
+  learning_rate: 1e-5
+
+visual_encoder:
+  model: "vit_base_patch16_224"
+  frozen: true
+  projection_dim: 384
+
+cmgat:
+  num_layers: 2
+  num_heads: 8
+  hidden_dim: 768
+  dropout: 0.1
+  spatial_iou_threshold: 0.05
+
+qformer:
+  num_queries: 32
+  num_layers: 6
+  hidden_dim: 768
+
+llm:
+  model: "meta-llama/Meta-Llama-3-8B-Instruct"
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  lora_target_modules: ["q_proj", "v_proj"]
+
+training:
+  optimizer: "adamw"
+  weight_decay: 0.01
+  lr_cmgat_qformer: 2e-4
+  lr_lora: 1e-4
+  scheduler: "cosine"
+  warmup_steps: 500
+  batch_size: 8
+  epochs: 10
+  early_stopping_metric: "val_f1"
+
+loss:
+  lambda_cls: 1.0
+  lambda_reg: 0.5
+  lambda_align: 0.1
+
+hardware:
+  gpu: "NVIDIA A100 80GB"
+
+random_seeds: [42, 123, 2024]
