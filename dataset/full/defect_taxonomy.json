@@ -1,0 +1,39 @@
+{
+  "defect_categories": [
+    {
+      "id": "css_occlusion",
+      "name": "CSS Occlusion",
+      "share": 0.30,
+      "description": "z-index or absolute positioning errors causing visual overlap",
+      "severity_levels": ["critical", "major", "minor"]
+    },
+    {
+      "id": "spatial_misalignment",
+      "name": "Spatial Misalignment",
+      "share": 0.25,
+      "description": "Flexbox or Grid alignment failures",
+      "severity_levels": ["critical", "major", "minor"]
+    },
+    {
+      "id": "contrast_violation",
+      "name": "Color Contrast Violation",
+      "share": 0.20,
+      "description": "WCAG 2.1 accessibility failures",
+      "severity_levels": ["major", "minor"]
+    },
+    {
+      "id": "text_overflow",
+      "name": "Text Overflow/Truncation",
+      "share": 0.15,
+      "description": "Dynamic text breaking container boundaries",
+      "severity_levels": ["major", "minor"]
+    },
+    {
+      "id": "missing_asset",
+      "name": "Missing/Broken Assets",
+      "share": 0.10,
+      "description": "Unrendered icons or images",
+      "severity_levels": ["critical", "major"]
+    }
+  ]
+}
