@@ -51,18 +51,26 @@ These are used exclusively for out-of-distribution testing.
 
 ### Data Structure
 dataset/full/
-├── annotations.json # Ground truth labels
-├── images/ # Rendered UI screenshots (Zenodo)
-├── dom_trees/ # Parsed DOM hierarchies (Zenodo)
-├── computed_styles/ # Computed style metadata (Zenodo)
-└── defect_taxonomy.json # Full defect taxonomy
+├── annotations.json # 100 sample annotations (full 3,500 hosted on Zenodo)
+├── defect_taxonomy.json # Full defect taxonomy
+├── images/ # Sample screenshots (Zenodo)
+└── dom_trees/ # Sample DOM hierarchies (Zenodo)
 
 text
 
-**Full dataset (12.7 GB) is hosted on Zenodo:**
-`https://doi.org/10.5281/zenodo.XXXXXXX` (placeholder, will be replaced)
+**Note on dataset size**: This GitHub repository contains **100 fully
+formatted sample annotations** to demonstrate the schema and facilitate
+schema-level validation. The **complete 3,500-sample dataset** (including
+all rendered screenshots and DOM trees, ~12.7 GB) is archived on Zenodo:
+`https://doi.org/10.5281/zenodo.XXXXXXX` (placeholder; DOI will be
+inserted at publication).
 
-The 50-sample preview is in `dataset/sampledata/` for quick inspection.
+The complete dataset can also be regenerated locally by running:
+
+```bash
+python scripts/generate_full_dataset.py
+This produces the full 3,500-entry annotations.json and corresponding
+train.json, val.json, test.json splits.
 
 ---
 
