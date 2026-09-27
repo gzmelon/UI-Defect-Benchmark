@@ -270,3 +270,17 @@ bibtex
   journal = {Multimedia Tools and Applications},
   year    = {2026}
 }
+Contact
+For questions about the dataset or code, please contact the corresponding author via the journal system.
+
+Response to All Reviewers (Summary)
+This repository also supports the paper's point-by-point response to all six reviewers. A summary of the key changes:
+
+Reviewer	Concern	Resolution
+#1	Dynamic UI, large DOM, synthetic bias	Dynamic UI pilot + graph sparsification + natural defects
+#2	Dataset unavailable	100 samples + schema + generator (this repository)
+#3	Novelty, title, literature table	Rewritten title, Sec. 1.2, Table 1 in paper
+#4	HCI grounding, effect size	Added HCI context + Cohen's d + Cliff's delta
+#5	Synthetic-only validation	Added natural defect subset
+#6	Baseline fairness	Fixed-backbone LLaMA-3 concat baseline
+See docs/reproducibility_checklist.md for the full traceability matrix.
